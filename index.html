@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <!-- Bootstraps -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+  <!-- End of Bootstraps -->
+  <link rel="stylesheet" type="text/css" href="./assets/js/1.css">
+  <title>Weather Dashboard</title>
+</head>
+
+<body>
+  <!-- Jumbostron -->
+  <div class="jumbotron jumbotron p-4 p-md-5 text-white rounded bg-dark">
+    <h1 class="display-4">Weather Dashboard</h1>
+  </div>
+  <!-- End of Jumbostron -->
+
+<main class="main">
+  <section class="container container-size">
+    <div class="row">
+      <!-- First Column: Search for City and Search history -->
+      <div class="col s12 m3 form-col">
+        <!-- Search Form -->
+        <div class="row">
+          <form class="form-inline" id="cityform">
+            <input class="form-control mr-sm-2" type="search" placeholder="Search For A City" aria-label="Search">
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit" id="searchbttn">Search</button>
+          </form>
+        </div>
+        <!-- Second row with search history -->
+        <div class="row">
+          Search history
+
+        </div>
+      </div>
+      <!-- Second Column where main body is -->
+      <div class="col s12 m3">
+        <!-- First Row Displaying Today's Temp -->
+        <div class="row temp-info container-size">
+          <div class="col s12 m12">
+            <div class="container">
+             <!-- Retrieved data will be dumped here -->
+            <div class="city"></div>
+            <div class="date"></div>
+            <div class="icon"></div>
+            <!-- <div><img class="icon" src="#" /></div> -->
+            <div class="temp"></div>
+            <div class="humidity"></div>
+            <div class="wind"></div>
+            <div class="uvindex"></div>
+            <div class="uvcolor"></div>          
+            </div>
+          </div>          
+        </div>
+        <div class="row">
+          <div class="col s12 m12">
+            5 Day Forecast
+          </div>
+        </div>
+      </div>
+    </div>
+   
+    
+  </section>
+
+ 
+
+</main>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+<script src="./assets/js/script.js"></script>
+</body>
+
+</html>
