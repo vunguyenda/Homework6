@@ -25,11 +25,10 @@ $(document).ready(function () {
     })
     // We store all of the retrieved data inside of an object called "response"
     .then(function(response) {
-      var icon = "http://openweathermap.org/img/wn/"+ response.weather[0].icon +"@2x.png";
-      var queryuvi = "http://api.openweathermap.org/data/2.5/uvi?appid=" + APIKey + "&lat="+ 
+      var icon = "https://openweathermap.org/img/wn/"+ response.weather[0].icon +"@2x.png";
+      var queryuvi = "https://api.openweathermap.org/data/2.5/uvi?appid=" + APIKey + "&lat="+ 
       response.coord.lat + "&lon=" + response.coord.lon;
-      console.log(queryuvi);
-      //api.openweathermap.org/data/2.5/uvi?lat=37.75&lon=-122.37
+      console.log(queryuvi);      
       // Log the resulting object
       console.log(response);
 
@@ -37,8 +36,7 @@ $(document).ready(function () {
       $(".city").html("<h1>" + response.name + "</h1>");
       console.log(response.dt);
       $(".date").text(new Date());
-      $(".icon").html("<image src=" + icon + "/>");
-      // $(".icon").src(icon);
+      $(".icon").html("<image src=" + icon + "/>");      
       // Convert the temp to fahrenheit
       var tempF = (response.main.temp - 273.15) * 1.80 + 32;
       $(".temp").text("Temperature (F) " + tempF.toFixed(2));
@@ -68,11 +66,7 @@ $(document).ready(function () {
         console.log(spancolor);
         $(".uvindex").html("UV Index: <span style='color:white; background-color:" + spancolor + ";'>" + response.value + "</span>");
         console.log(response);
-      });
-      
-      // $(".wind").text("Wind Speed: " + response.wind.speed);
-      // $(".humidity").text("Humidity: " + response.main.humidity);
-    
+      });     
     });
   });
 });
