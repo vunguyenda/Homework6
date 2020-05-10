@@ -65,7 +65,7 @@ $(document).ready(function () {
         }
         
         console.log(spancolor);
-        $(".uvindex").html("UV Index: <span style='color : white; background-color:" + spancolor + "'>"+ response.value + "</span>");
+        $(".uvindex").html("UV Index: <span style='color : white'; background-color:'" + spancolor + "'>"+ response.value + "</span>");
         console.log(response);
       });
       
