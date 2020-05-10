@@ -13,11 +13,11 @@ $(document).ready(function () {
     console.log("City Name is :" + weatherloc);
 
 
-    // Quert URL to build database
-    // var queryURL = "https://api.openweathermap.org/data/2.5/weather?" + "q=" + weatherloc + "&appid=" + APIKey;
+    // Quert URL to build database    
     var queryURL = "https://api.openweathermap.org/data/2.5/weather?" +
     "q="+ $(".form-control").val() + "&appid=" + APIKey;
     console.log(queryURL);
+    
     // Here we run our AJAX call to the OpenWeatherMap API
     $.ajax({
       url: queryURL,
@@ -43,6 +43,7 @@ $(document).ready(function () {
       $(".humidity").text("Humidity: " + response.main.humidity);
       $(".city").html("<h1>" + response.name + " Weather Details</h1>");
       $(".wind").text("Wind Speed: " + response.wind.speed);
+      //Call a new ajax to color UVindex
       $.ajax({
         url: queryuvi,
         method: "GET", 
@@ -61,10 +62,37 @@ $(document).ready(function () {
           spancolor = "red";
         } else {
           spancolor = "purple";
-        }
-        
-        console.log(spancolor);
+        }        
         $(".uvindex").html("UV Index: <span style='color:white; background-color:" + spancolor + ";'>" + response.value + "</span>");
+        //End UVIndex
+      //Sample of 5 days forecast
+      // api.openweathermap.org/data/2.5/forecast?q=London,us&mode=xml
+      var queryforecast = "https://api.openweathermap.org/data/2.5/forecast?q="+ $(".form-control").val() + "&appid=" + APIKey;
+        $.ajax({
+          url: queryforecast,
+          method: "GET",
+        })
+        .then(function(response){
+          console.log("Let's do weather forecast");
+          console.log(response);
+          var weatherlist = response.list;
+          console.log("Let's print weatherlist");
+          console.log(weatherlist);          
+          console.log("Now do a for loop");
+          var day = 1;
+          for (i=0;i< weatherlist.length;i+=8){              
+            console.log("List number " + i);
+            var icon5 = "https://openweathermap.org/img/wn/"+ weatherlist[i].weather.icon +"@2x.png";
+            $(".day"+day).html(
+              "<div ='col s12 m12'><h3>Time: </h3>"+
+              "<div ='col s12 m12'>" + weatherlist[i].dt_txt + "</div>" +
+              "<div ='col s12 m12'> Temperature: " + weatherlist[i].main.temp + "</div>" +
+              "<div ='col s12 m12'> Humidity: " + weatherlist[i].main.humidity + "</div>" +
+              "<div ='col s12 m12'><img src='" + icon5 + "'/></div>"
+            );
+            day++;
+          };
+        })
         console.log(response);
       });     
     });
