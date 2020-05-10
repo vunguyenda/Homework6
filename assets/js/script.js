@@ -51,6 +51,7 @@ $(document).ready(function () {
       })
       .then(function(response) {
         // var span = "<span>";
+        console.log("Where is my UVIndex");
         var spancolor;
         if (response.value < 3){
           spancolor = "green";
@@ -65,7 +66,7 @@ $(document).ready(function () {
         }
         
         console.log(spancolor);
-        $(".uvindex").html("UV Index: <span style='color : white'; background-color:'" + spancolor + "'>"+ response.value + "</span>");
+        $(".uvindex").html("UV Index: <span style='color:white; background-color:" + spancolor + ";'>" + response.value + "</span>");
         console.log(response);
       });
       
