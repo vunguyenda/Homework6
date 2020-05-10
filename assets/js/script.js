@@ -82,7 +82,7 @@ $(document).ready(function () {
           var day = 1;
           for (i=0;i< weatherlist.length;i+=8){              
             console.log("List number " + i);
-            var icon5 = "https://openweathermap.org/img/wn/"+ weatherlist[i].weather.icon +"@2x.png";
+            var icon5 = "https://openweathermap.org/img/wn/"+ weatherlist[i].weather[0].icon +"@2x.png";
             $(".day"+day).html(
               "<div ='col s12 m12'><h3>Time: </h3>"+
               "<div ='col s12 m12'>" + weatherlist[i].dt_txt + "</div>" +
